@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADD TASK</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+    main {
+      height: 300px;
+      width: 600px;
+      background-color: white;
+      border: 2px solid black;
+      box-shadow: 2px 2px black;
+      border-radius: 10px;
+    }
+    h1 {
+      text-decoration: underline;
+    }
+    form {
+      height: 300px;
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+    }
+    input {
+      height: 30px;
+      width: 90%;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+    button {
+      height: 35px;
+      width: 120px;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      border-radius: 10px;
+      background-color: green;
+      color: white;
+    }
+  </style>
+  <body>
+    <main>
+      <form action="">
+        <h1>TASK MANAGER</h1>
+        <input name="task" type="text" placeholder="Enter your Task" />
+        <button type="submit">Add</button>
+      </form>
+    </main>
+  </body>
+</html>
