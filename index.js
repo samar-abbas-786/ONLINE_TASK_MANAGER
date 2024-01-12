@@ -54,7 +54,7 @@ app.post("/user/signup", async (req, res) => {
       password,
     });
     // res.status(201).json({ message: "User created successfully!" });
-    return res.redirect("/home");
+    return res.render("task");
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -67,13 +67,13 @@ app.post("/user/login", async (req, res) => {
   if (!user) {
     res.render("signup");
   } else {
-    return res.redirect("/home");
+    return res.render("task");
   }
 });
 
-app.get("/home", (req, res) => {
-  return res.render("task");
-});
+// app.get("/home", (req, res) => {
+//   return res.render("task");
+// });
 
 // Start the server
 app.listen(PORT, () => {
