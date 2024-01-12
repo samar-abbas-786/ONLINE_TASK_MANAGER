@@ -51,12 +51,14 @@
       }
 
       h1 {
-        text-align: center; /* Center the heading */
+        text-align: center;
+        /* Center the heading */
       }
     </style>
   </head>
+
   <body>
-    <form method="post" action="/user/signup" enctype="multipart/form-data">
+    <form method="POST" action="/user/signup">
       <h1>SIGN UP</h1>
       <label for="fullName">fullName:</label>
       <input type="text" id="fullName" name="fullName" />
