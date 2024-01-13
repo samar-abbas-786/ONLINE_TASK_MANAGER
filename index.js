@@ -1,4 +1,4 @@
-// practice2.js
+const { v4: uuidv4 } = require("uuid");
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/taskSchema"); // Import the User model with correct path
@@ -6,11 +6,14 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
+const { setUser } = require("./service/auth");
+const cookieParser = require("cookie-parser");
 
 // Middleware to parse incoming JSON data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // DATABASE CONNECTION
 mongoose
@@ -54,6 +57,7 @@ app.post("/user/signup", async (req, res) => {
       password,
     });
     // res.status(201).json({ message: "User created successfully!" });
+
     return res.render("task");
   } catch (error) {
     console.error("Error creating user:", error);
@@ -67,6 +71,9 @@ app.post("/user/login", async (req, res) => {
   if (!user) {
     res.render("signup");
   } else {
+    const sessionId = uuidv4();
+    setUser(sessionId, user);
+    res.cookie("uid", sessionId);
     return res.render("task");
   }
 });
